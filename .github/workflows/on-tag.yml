@@ -34,7 +34,7 @@ jobs:
 
       - name: Build and publish package
         run: |
-          cat <<< $(jq '.version = "${{ github.sha }}"' ./packages/design-system/package.json) > ./packages/design-system/package.json
+          cat <<< $(jq '.version = "0.0.1-test.${{ github.sha }}"' ./packages/design-system/package.json) > ./packages/design-system/package.json
           pnpm build:worms-ui
           pnpm publish --filter @casavo/worms-ui --force --no-git-checks
         env:
