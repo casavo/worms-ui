@@ -1,0 +1,14 @@
+{
+  "name": "@casavo/internal-products-ds",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build:worms-ui": "pnpm run --filter @casavo/worms-ui build"
+  },
+  "keywords": [],
+  "author": "Simone D'Avico <simone.davico@casavo.com>",
+  "license": "ISC",
+  "engines": {
+    "pnpm": ">=6"
+  }
+}

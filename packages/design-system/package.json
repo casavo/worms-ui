@@ -1,0 +1,41 @@
+{
+  "name": "@casavo/worms-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "module": "./dist/index.es.js",
+  "types": "./types/index.d.ts",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "browser": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "node": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@dessert-box/react": "^0.4.0",
+    "@vanilla-extract/css": "^1.9.2",
+    "@vanilla-extract/recipes": "^0.3.0",
+    "@vanilla-extract/sprinkles": "^1.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vanilla-extract/vite-plugin": "^3.7.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^1.7.1"
+  }
+}
