@@ -1,0 +1,39 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish_release:
+    name: Build & Publish package
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ^7
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile --filter @casavo/worms-ui
+
+      - name: Build and publish package
+        run: |
+          cat <<< $(jq '.version = "0.0.1-rc.${{ github.sha }}"' ./packages/design-system/package.json) > ./packages/design-system/package.json
+          pnpm build:worms-ui
+          pnpm publish --filter @casavo/worms-ui --force --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
