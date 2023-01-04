@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "module": "./dist/index.es.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "style": "./dist/style.css",
   "exports": {
     ".": {
