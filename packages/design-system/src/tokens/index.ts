@@ -71,7 +71,10 @@ export const spacings = {
   x5l: '96px',
 } as const;
 
-export const typography = {} as const;
+export const typographyFont = {
+  inter: 'Inter',
+  bagossCondensed: 'Bagoss Condensed',
+} as const;
 
 export const shadows = {} as const;
 
@@ -81,4 +84,10 @@ export const breakpoints = {
   tablet: 768,
   laptop: 960,
   desktop: 1024,
+} as const;
+
+export const mediaQueries = {
+  tablet: `screen and (min-width: ${breakpoints.tablet}px)`,
+  laptop: `screen and (min-width: ${breakpoints.laptop}px)`,
+  desktop: `screen and (min-width: ${breakpoints.desktop}px)`,
 } as const;
