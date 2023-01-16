@@ -2,8 +2,15 @@ import { useState } from 'react';
 import { Box } from './components/Box/Box';
 import { Button } from './components/Button';
 import { Card } from './components/Card';
+import { Typography } from './components/Typography';
 import { sprinkles } from './theme/sprinkles.css';
 import { themeClass } from './theme/theme.css';
+
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/800.css';
+import './app.css';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,6 +45,12 @@ function App() {
       <Box display="flex" color="white" background="green600">
         Hello box!
       </Box>
+      <Typography variant="h2">Hi I'm a h2</Typography>
+      <Typography variant="h3">Hi I'm a h3</Typography>
+      <Typography variant="description">Hi I'm a description</Typography>
+      <Typography variant="caption">Hi I'm a caption</Typography>
+      <Typography variant="bodyM">Hi I'm a bodyM</Typography>
+      <Typography variant="bodyL">Hi I'm a bodyL</Typography>
     </div>
   );
 }
