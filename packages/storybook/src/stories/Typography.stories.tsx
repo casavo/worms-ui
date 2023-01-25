@@ -1,12 +1,15 @@
-import { Box, colors, Typography, TypographyVariants } from '@casavo/worms-ui';
+import { Box, Typography, TypographyColors, TypographyVariants } from '@casavo/worms-ui';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+const variants: TypographyVariants[] = ['h2', 'h3', 'bodyL', 'bodyM', 'caption', 'description'];
+const colors: TypographyColors[] = ['description', 'inactive', 'inverted', 'neutral', 'title'];
 
 export default {
   title: 'Typography',
   component: Typography,
   argTypes: {
     color: {
-      options: Object.keys(colors),
+      options: colors,
       control: { type: 'select' },
     },
     children: {
@@ -19,15 +22,13 @@ export default {
   },
 } as ComponentMeta<typeof Typography>;
 
-const variants: TypographyVariants[] = ['h2', 'h3', 'bodyL', 'bodyM', 'caption', 'description'];
-
 const Template: ComponentStory<typeof Typography> = (args) => (
   <>
     {variants.map((t) => {
       return (
         <>
           <Typography variant="description">{`${t}:`}</Typography>
-          <Typography variant={t} color={args.color} weight={args.weight}>
+          <Typography variant={t} weight={args.weight} color={args.color}>
             {args.children}
           </Typography>
           <Box height="m" />
@@ -40,6 +41,6 @@ const Template: ComponentStory<typeof Typography> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   children: 'Hello!',
-  color: 'greyscale600',
+  color: 'neutral',
   weight: '400',
 };

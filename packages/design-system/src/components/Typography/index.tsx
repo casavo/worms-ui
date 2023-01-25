@@ -1,13 +1,15 @@
 import { CSSProperties, FC } from 'react';
+import { vars } from '../../theme/theme.css';
 import { typographyStyles } from './styles.css';
 
 export type TypographyVariants = 'h2' | 'h3' | 'description' | 'bodyM' | 'bodyL' | 'caption';
+export type TypographyColors = 'neutral' | 'inverted' | 'description' | 'title' | 'inactive';
 
 export interface TypographyProps {
   variant: TypographyVariants;
   children: string;
+  color?: TypographyColors;
   weight?: '300' | '400' | '600';
-  color?: string;
   style?: CSSProperties;
   dataTestId?: string;
   className?: string;
@@ -27,8 +29,8 @@ export const Typography: FC<TypographyProps> = ({
 
   return (
     <Tag
-      className={`${classname} ${additionalClassname || ''}`}
-      style={{ fontWeight: weight, color, ...style }}
+      className={`${additionalClassname || ''} ${classname}`}
+      style={{ fontWeight: weight, color: vars.textColor[color || 'neutral'], ...style }}
       data-testid={dataTestId}
     >
       {children}

@@ -9,7 +9,10 @@ export const [themeClass, vars] = createTheme({
   },
   textColor: {
     neutral: colors.greyscale600,
-    highlight: colors.white,
+    inverted: colors.white,
+    description: colors.greyscale600,
+    title: colors.deepGreen600,
+    inactive: colors.greyscale400,
   },
   textFont: {
     primary: typographyFont.inter,
