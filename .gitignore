@@ -24,3 +24,6 @@ build
 
 # typedefs
 types
+
+# turborepo
+.turbo

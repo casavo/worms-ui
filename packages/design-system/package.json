@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build",
+    "lint": "tsc"
   },
   "dependencies": {
     "@dessert-box/react": "^0.4.0",
