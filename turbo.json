@@ -3,13 +3,13 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "storybook-static/**"]
     },
     "lint": {},
     "dev": {},
     "start": {
       "outputs": [],
-      "dependsOn": ["^build"]
+      "cache": false
     }
   }
 }
