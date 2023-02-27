@@ -7,9 +7,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@casavo/worms-ui": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@casavo/worms-ui": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

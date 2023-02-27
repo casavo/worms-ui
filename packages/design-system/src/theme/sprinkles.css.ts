@@ -1,5 +1,5 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
-import { breakpoints, colors, spacings } from 'src/tokens';
+import { breakpoints, colors, fontFamily, fontSizes, fontWeight, spacings } from 'src/tokens';
 
 const unresponsiveProperties = defineProperties({
   properties: {
@@ -59,6 +59,8 @@ const responsiveProperties = defineProperties({
     marginLeft: spacings,
     marginRight: spacings,
     height: spacings,
+    fontWeight,
+    fontFamily,
   },
   shorthands: {
     p: [`paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`],

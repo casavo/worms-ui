@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "dev:worms-ui": "pnpm run --filter @casavo/worms-ui dev",
     "build:worms-ui": "pnpm run --filter @casavo/worms-ui build",
     "run:storybook": "pnpm --filter storybook run storybook"
   },
