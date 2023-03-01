@@ -19,7 +19,7 @@ function App() {
       </Text>
       <Text variant="description">Description</Text>
       <Text variant="caption">Caption</Text>
-      <Text variant="small" dataTestId="small-text" as="span">
+      <Text variant="small" data-testid="small-text" as="span">
         Small text
       </Text>
     </div>
