@@ -1,21 +1,24 @@
 import { clsx } from 'clsx';
-import { createElement, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { textRecipe, TextRecipe } from './Text.css';
 
-export type TextProps = {
-  as?: keyof JSX.IntrinsicElements;
+type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
+  as?: T;
   className?: string;
   children: React.ReactNode;
   dataTestId?: string;
-} & TextRecipe;
+};
 
-export const Text = forwardRef<HTMLElement, React.PropsWithChildren<TextProps>>(
-  ({ variant, weight, children, color, dataTestId, className, as = 'p' }, forwardedRef) => {
-    return createElement(as, {
-      children,
-      className: clsx(textRecipe({ variant, weight, color }), className),
-      ref: forwardedRef,
-      'data-testid': dataTestId,
-    });
+export const Text = forwardRef<HTMLElement, React.PropsWithChildren<TextProps<any>>>(
+  ({ variant, weight, children, color, dataTestId, className, as: Tag = 'p' }, forwardedRef) => {
+    return (
+      <Tag
+        className={clsx(textRecipe({ variant, weight, color }), className)}
+        ref={forwardedRef}
+        data-testid={dataTestId}
+      >
+        {children}
+      </Tag>
+    );
   }
 );
