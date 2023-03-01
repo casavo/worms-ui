@@ -1,12 +1,25 @@
-import { Box } from '@casavo/worms-ui';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Box, colors, spacings } from '@casavo/worms-ui';
+import { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta = {
   title: 'Box',
   component: Box,
-  parameters: {},
-} as ComponentMeta<typeof Box>;
+  argTypes: {
+    color: { options: Object.keys(colors), control: { type: 'select' } },
+    background: { options: Object.keys(colors), control: { type: 'select' } },
+    padding: { options: Object.keys(spacings), control: { type: 'select' } },
+    children: { control: 'text' },
+  },
+} satisfies Meta<typeof Box>;
 
-const Template: ComponentStory<typeof Box> = (args) => <Box background="deepGreen600">ciao</Box>;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const LoggedOut = Template.bind({});
+export const Default: Story = {
+  args: {
+    color: 'white',
+    background: 'orange600',
+    padding: 'l',
+    children: 'Hello!',
+  },
+};

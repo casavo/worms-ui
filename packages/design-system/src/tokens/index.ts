@@ -71,7 +71,43 @@ export const spacings = {
   x5l: '96px',
 } as const;
 
-export const typography = {} as const;
+export const fontFamily = {
+  sans: 'Inter',
+  serif: 'Bagoss Condensed',
+} as const;
+
+export const fontWeight = {
+  light: '300',
+  regular: '400',
+  strong: '600',
+} as const;
+
+export const fontSizes = {
+  desktop: {
+    display: '52px',
+    h1: '40px',
+    h2: '32px',
+    h3: '28px',
+    h4: '24px',
+    bodyL: '20px',
+    bodyM: '16px',
+    description: '14px',
+    caption: '12px',
+    small: '11px',
+  },
+  mobile: {
+    display: '40px',
+    h1: '32px',
+    h2: '28px',
+    h3: '24px',
+    h4: '20px',
+    bodyL: '18px',
+    bodyM: '16px',
+    description: '14px',
+    caption: '12px',
+    small: '11px',
+  },
+} as const;
 
 export const shadows = {} as const;
 
@@ -81,4 +117,10 @@ export const breakpoints = {
   tablet: 768,
   laptop: 960,
   desktop: 1024,
+} as const;
+
+export const mediaQueries = {
+  tablet: `screen and (min-width: ${breakpoints.tablet}px)`,
+  laptop: `screen and (min-width: ${breakpoints.laptop}px)`,
+  desktop: `screen and (min-width: ${breakpoints.desktop}px)`,
 } as const;
