@@ -6,11 +6,11 @@ type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
   as?: T;
   className?: string;
   children: React.ReactNode;
-  dataTestId?: string;
+ 'data-testid'?: string;
 };
 
 export const Text = forwardRef<HTMLElement, React.PropsWithChildren<TextProps<any>>>(
-  ({ variant, weight, children, color, dataTestId, className, as: Tag = 'p' }, forwardedRef) => {
+  ({ variant, weight, children, color, 'data-testid': dataTestId, className, as: Tag = 'p' }, forwardedRef) => {
     return (
       <Tag
         className={clsx(textRecipe({ variant, weight, color }), className)}
