@@ -6,7 +6,6 @@ export const textRecipe = recipe({
   base: { margin: 0 },
   defaultVariants: {
     variant: 'bodyM',
-    color: 'neutral',
   },
   variants: {
     variant: {

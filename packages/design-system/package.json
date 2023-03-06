@@ -27,7 +27,8 @@
     "@vanilla-extract/recipes": "^0.3.0",
     "@vanilla-extract/sprinkles": "^1.5.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-aria": "3.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
