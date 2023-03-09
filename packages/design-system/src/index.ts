@@ -7,5 +7,7 @@ export { Separator } from './components/Separator';
 export { Spinner } from './components/Spinner';
 export { Text } from './components/Text';
 
+export { BadgeVariant } from './components/Badge/Badge.css';
+
 export { themeClass as wormsUiThemeClass, vars as theme } from './theme/theme.css';
 export * from './tokens';
