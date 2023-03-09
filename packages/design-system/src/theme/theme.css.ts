@@ -7,6 +7,7 @@ export const [themeClass, vars] = createTheme({
     neutral: colors.white,
     highlight: colors.deepGreen600,
   },
+  colors,
   textColor: {
     neutral: colors.greyscale600,
     inverted: colors.white,

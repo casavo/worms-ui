@@ -1,27 +1,42 @@
+import { Box } from './components/Box';
+import { Separator } from './components/Separator';
 import { Text } from './components/Text';
 import { themeClass } from './theme/theme.css';
+import { spacings } from './tokens';
 
 function App() {
   return (
     <div className={themeClass}>
-      <Text variant="display">Display</Text>
-      <Text variant="h1">H1</Text>
-      <Text variant="h2">H2</Text>
-      <Text variant="h3">H3</Text>
-      <Text variant="h4">H4</Text>
-      <Text variant="bodyL">Body L</Text>
-      <Text variant="bodyL" weight="strong">
-        Body L - Strong
-      </Text>
-      <Text variant="bodyM">Body M</Text>
-      <Text variant="bodyM" weight="strong">
-        Body M - Strong
-      </Text>
-      <Text variant="description">Description</Text>
-      <Text variant="caption">Caption</Text>
-      <Text variant="small" data-testid="small-text" as="span">
-        Small text
-      </Text>
+      <Box display={'flex'} flexDirection={'column'} style={{ gap: spacings.l }}>
+        <Box
+          background="deepGreen100"
+          style={{ borderRadius: spacings.s, gap: spacings.m }}
+          padding="l"
+          display={'flex'}
+          flexDirection={'column'}
+        >
+          <Text variant="display">Display</Text>
+          <Separator />
+          <Text variant="bodyM">Body M</Text>
+        </Box>
+
+        <Box
+          background="deepGreen100"
+          style={{ borderRadius: spacings.s, gap: spacings.m, height: 150 }}
+          padding="l"
+          display={'flex'}
+        >
+          <Box style={{ flex: 1 }}>
+            <Text variant="h4">Title</Text>
+            <Text variant="bodyM">Lorem ipsum</Text>
+          </Box>
+          <Separator orientation="vertical" />
+          <Box style={{ flex: 1 }}>
+            <Text variant="h4">Title</Text>
+            <Text variant="bodyM">Lorem ipsum</Text>
+          </Box>
+        </Box>
+      </Box>
     </div>
   );
 }
