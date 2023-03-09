@@ -1,51 +1,107 @@
-import { useState } from 'react';
+import { Badge } from './components/Badge';
 import { Box } from './components/Box';
-import { Button } from './components/Button';
-import { Spinner } from './components/Spinner';
-import { Card } from './components/Card';
-import { Link } from './components/Link';
 import { themeClass } from './theme/theme.css';
-import { colors, spacings } from './tokens';
-
-export const BathroomIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({ fill = colors.greyscale900, ...props }) => (
-  <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" fill={fill} {...props}>
-    <path d="M12 0a4 4 0 0 1 4 4v7.5a3.5 3.5 0 0 1-1.999 3.163L14 15a1 1 0 1 1-2 0H4a1 1 0 1 1-2 0v-.337A3.5 3.5 0 0 1 0 11.5V9a1 1 0 0 1 1-1h13V4a2 2 0 0 0-1.85-1.995L12 2h-1.535c.34.588.535 1.271.535 2v2H3V4a4 4 0 0 1 4-4h5Zm2 10H2v1.5a1.5 1.5 0 0 0 1.356 1.493L3.5 13h9a1.5 1.5 0 0 0 1.493-1.355L14 11.5V10ZM7 2a2 2 0 0 0-1.995 1.85L5 4h4a2 2 0 0 0-1.85-1.995L7 2Z" />
-  </svg>
-);
+import { colors } from './tokens';
 
 function App() {
-  const [selected, setSelected] = useState(false);
-  const [loading, setLoading] = useState(false);
-
   return (
     <div className={themeClass}>
-      <Box padding="l" display="flex" gap="m">
-        <Link rel="noreferrer" href="/">
-          Hello Link!
-        </Link>
-        <Link disabled href="/">
-          Disabled
-        </Link>
-        <Link title="Provami!" href="/">
-          With title
-        </Link>
-        <Link target="_blank" href="/">
-          Target
-        </Link>
-      </Box>
-      <Box padding="l" display="flex" gap="m">
-        <Link isSmall href="/">
-          Hello Link!
-        </Link>
-        <Link isSmall disabled href="/">
-          Disabled
-        </Link>
-        <Link isSmall title="Provami!" href="/">
-          With title
-        </Link>
-        <Link isSmall target="_blank" href="/">
-          Target
-        </Link>
+      <Box
+        padding="x2l"
+        background="deepGreen100"
+        display="flex"
+        style={{ gap: 24 }}
+        flexDirection="column"
+        alignItems="flex-start"
+      >
+        <Badge>success</Badge>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge>success</Badge>
+          <Badge withIcon>success</Badge>
+          <Badge inverted>success inverted</Badge>
+          <Badge inverted withIcon>
+            success inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="warning">warning</Badge>
+          <Badge variant="warning" withIcon>
+            warning
+          </Badge>
+          <Badge variant="warning" inverted>
+            warning inverted
+          </Badge>
+          <Badge variant="warning" inverted withIcon>
+            warning inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="error">error</Badge>
+          <Badge variant="error" withIcon>
+            error
+          </Badge>
+          <Badge variant="error" inverted>
+            error inverted
+          </Badge>
+          <Badge variant="error" inverted withIcon>
+            error inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="orangeB2C">orangeB2C</Badge>
+          <Badge variant="orangeB2C" withIcon>
+            orangeB2C
+          </Badge>
+          <Badge variant="orangeB2C" inverted>
+            orangeB2C inverted
+          </Badge>
+          <Badge variant="orangeB2C" inverted withIcon>
+            orangeB2C inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="greenB2B">greenB2B</Badge>
+          <Badge variant="greenB2B" withIcon>
+            greenB2B
+          </Badge>
+          <Badge variant="greenB2B" inverted>
+            greenB2B inverted
+          </Badge>
+          <Badge variant="greenB2B" inverted withIcon>
+            greenB2B inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="deepGreen">deepGreen</Badge>
+          <Badge variant="deepGreen" withIcon>
+            deepGreen
+          </Badge>
+          <Badge variant="deepGreen" inverted>
+            deepGreen inverted
+          </Badge>
+          <Badge variant="deepGreen" inverted withIcon>
+            deepGreen inverted
+          </Badge>
+        </Box>
+
+        <Box display="flex" style={{ gap: 8 }}>
+          <Badge variant="light">light</Badge>
+          <Badge variant="light" withIcon>
+            light
+          </Badge>
+          <Badge variant="light" inverted>
+            light inverted
+          </Badge>
+          <Badge variant="light" inverted withIcon>
+            light inverted
+          </Badge>
+        </Box>
       </Box>
     </div>
   );
