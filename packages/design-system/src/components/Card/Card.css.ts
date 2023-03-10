@@ -1,13 +1,19 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { createContainer, style, styleVariants } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { vars } from 'src/theme/theme.css';
 import { spacings } from 'src/tokens';
+
+const CONTAINER_SIZE = 385;
+const cardContainer = createContainer();
+export const cardContainerStyle = style({
+  containerName: cardContainer,
+  containerType: 'inline-size',
+});
 
 const clickableCardStyle = style({
   selectors: {
     '&[role=button]': {
       cursor: 'pointer',
-      outline: 'none',
     },
     '&[role=button]:hover, &[role=button]:focus': {
       boxShadow: vars.boxShadow.lifted,
@@ -19,55 +25,51 @@ const clickableCardStyle = style({
 export const cardRecipe = recipe({
   base: {
     borderRadius: spacings.s,
-    padding: spacings.l,
     transition: 'all 300ms, border 200ms',
     backgroundColor: vars.backgroundColor.neutral,
+    outline: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: spacings.l,
+    padding: spacings.l,
+    '@container': {
+      [`${cardContainer} (max-width: ${CONTAINER_SIZE}px)`]: {
+        padding: spacings.m,
+      },
+    },
   },
-  defaultVariants: {
-    variant: 'default',
-    selected: false,
-  },
+
+  defaultVariants: { variant: 'default' },
   variants: {
     variant: {
-      default: {
-        border: `1px solid ${vars.colors.deepGreen100}`,
-      },
+      default: [
+        clickableCardStyle,
+        {
+          border: `1px solid ${vars.colors.deepGreen100}`,
+        },
+      ],
+      defaultOnWhite: [
+        clickableCardStyle,
+        {
+          border: `1px solid ${vars.colors.deepGreen400}`,
+        },
+      ],
       highlight: {
         backgroundColor: vars.backgroundColor.highlight,
         color: vars.colors.white,
         border: `1px solid ${vars.backgroundColor.highlight}`,
       },
-      defaultOnWhite: {
-        border: `1px solid ${vars.colors.deepGreen400}`,
-      },
+      selected: [
+        clickableCardStyle,
+        {
+          border: `1px solid ${vars.colors.green600}`,
+        },
+      ],
     },
-    selected: { true: {} },
   },
-  compoundVariants: [
-    {
-      variants: { variant: 'default' },
-      style: clickableCardStyle,
-    },
-    {
-      variants: { variant: 'defaultOnWhite' },
-      style: clickableCardStyle,
-    },
-    {
-      variants: { variant: 'default', selected: true },
-      style: { border: `1px solid ${vars.colors.green600}` },
-    },
-    {
-      variants: { variant: 'defaultOnWhite', selected: true },
-      style: { border: `1px solid ${vars.colors.green600}` },
-    },
-  ],
 });
 
 export type CardVariants = RecipeVariants<typeof cardRecipe>;
-
-export const cardTitleStyle = style({
-  marginBottom: spacings.l,
-});
 
 export const cardTitle = styleVariants({
   default: {
@@ -79,16 +81,7 @@ export const cardTitle = styleVariants({
   highlight: {
     color: vars.textColor.inverted,
   },
-});
-
-export const cardSubtitle = styleVariants({
-  default: {
-    color: vars.textColor.neutral,
-  },
-  defaultOnWhite: {
-    color: vars.textColor.neutral,
-  },
-  highlight: {
-    color: vars.textColor.inverted,
+  selected: {
+    color: vars.textColor.title,
   },
 });

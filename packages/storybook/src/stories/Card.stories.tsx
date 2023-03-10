@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { getTypeDelimitedWithPipe } from '../utils/get-type-delimited-with-pipe';
 import { action } from '@storybook/addon-actions';
 
-const variants = ['default', 'highlight', 'defaultOnWhite'];
+const variants = ['default', 'defaultOnWhite', 'highlight', 'selected'];
 
 const meta = {
   title: 'Card',
@@ -21,11 +21,6 @@ const meta = {
       },
       table: { type: { summary: 'React.ReactNode' } },
     },
-    selected: {
-      control: 'boolean',
-      type: { name: 'boolean' },
-      table: { type: { summary: 'boolean' } },
-    },
     variant: {
       control: 'select',
       table: { type: { summary: getTypeDelimitedWithPipe(variants) } },
@@ -33,10 +28,10 @@ const meta = {
     },
     onClick: {
       action: 'clicked',
+      type: 'function',
       table: { type: { summary: '() => void' } },
     },
     title: { description: 'The title of the card', table: { type: { summary: 'string' } } },
-    subtitle: { description: 'The subtitle of the card', table: { type: { summary: 'string' } } },
   },
 } satisfies Meta<typeof Card>;
 
@@ -45,21 +40,21 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { title: "I'm a title", subtitle: "I'm a subtitle" },
+  args: { title: "I'm a title" },
 };
 
 export const DefaultOnWhite: Story = {
-  args: { title: "I'm a title", subtitle: "I'm a subtitle", variant: 'defaultOnWhite' },
+  args: { title: "I'm a title", variant: 'defaultOnWhite' },
 };
 
 export const Highlight: Story = {
-  args: { title: "I'm a title", subtitle: "I'm a subtitle", variant: 'highlight' },
+  args: { title: "I'm a title", variant: 'highlight' },
 };
 
 export const Selected: Story = {
-  args: { title: "I'm a title", subtitle: "I'm a subtitle", selected: true },
+  args: { title: "I'm a title", variant: 'selected' },
 };
 
 export const Clickable: Story = {
-  args: { title: "I'm a title", subtitle: "I'm a subtitle", onClick: action('clicked') },
+  args: { title: "I'm a title", onClick: action('clicked') },
 };
