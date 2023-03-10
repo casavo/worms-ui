@@ -20,9 +20,7 @@ export const [themeClass, vars] = createTheme({
     serif: fontFamily.serif,
   },
   boxShadow: {
-    sm: '0px 6px 20px rgba(54, 67, 82, 0.25)',
-    md: '',
-    lg: '',
+    lifted: '0px 2px 8px rgba(29, 29, 27, 0.24)',
   },
   fontWeight,
   mediaQueries,

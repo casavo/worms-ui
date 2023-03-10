@@ -59,6 +59,7 @@ const responsiveProperties = defineProperties({
     marginLeft: spacings,
     marginRight: spacings,
     height: spacings,
+    gap: spacings,
     fontWeight,
     fontFamily,
   },
