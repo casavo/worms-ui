@@ -1,4 +1,5 @@
 import { Badge, BadgeVariant, Box, spacings } from '@casavo/worms-ui';
+import { BadgeVariantUnion } from '@casavo/worms-ui/dist/components/Badge/Badge.css';
 import { Meta, StoryObj } from '@storybook/react';
 import { getTypeDelimitedWithPipe } from '../utils/get-type-delimited-with-pipe';
 
@@ -22,19 +23,46 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
+export const AllBadge: Story = {
   args: { children: 'Success' },
   decorators: [
-    (Story) => (
-      <Box style={{ gap: spacings.m }} display="flex" flexDirection="column">
-        <Story />
-      </Box>
-    ),
+    (Story) => {
+      return (
+        <Box display="flex" gap="m" flexWrap="wrap">
+          <Box display="flex" gap="m" flexWrap="wrap">
+            <Story />
+            {variants.map((v) => (
+              <Badge variant={v as BadgeVariantUnion}>{v}</Badge>
+            ))}
+          </Box>
+
+          <Box display="flex" gap="m" flexWrap="wrap">
+            {variants.map((v) => (
+              <Badge variant={v as BadgeVariantUnion} withIcon>
+                {v}
+              </Badge>
+            ))}
+          </Box>
+
+          <Box display="flex" gap="m" flexWrap="wrap">
+            {variants.map((v) => (
+              <Badge variant={v as BadgeVariantUnion} inverted>
+                {v} inverted
+              </Badge>
+            ))}
+          </Box>
+
+          <Box display="flex" gap="m" flexWrap="wrap">
+            {variants.map((v) => (
+              <Badge variant={v as BadgeVariantUnion} inverted withIcon>
+                {v} inverted
+              </Badge>
+            ))}
+          </Box>
+        </Box>
+      );
+    },
   ],
 };
 
-export const SuccessInverted: Story = { args: { children: 'Success', inverted: true } };
-export const Warning: Story = { args: { children: 'Warning', variant: 'warning' } };
-export const WarningInverted: Story = { args: { children: 'Warning', variant: 'warning', inverted: true } };
-export const Error: Story = { args: { children: 'Error', variant: 'error' } };
-export const ErrorInverted: Story = { args: { children: 'Error', variant: 'error', inverted: true } };
+export const Default: Story = { args: { children: 'Hello!' } };

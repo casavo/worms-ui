@@ -62,7 +62,6 @@ const responsiveProperties = defineProperties({
     gap: spacings,
     fontWeight,
     fontFamily,
-    gap: spacings,
   },
   shorthands: {
     p: [`paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`],
