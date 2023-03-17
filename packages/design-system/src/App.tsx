@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box } from './components/Box';
+import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { themeClass } from './theme/theme.css';
 import { spacings } from './tokens';
@@ -17,6 +18,23 @@ function App() {
             <p>Children!</p>
           </Card>
         ))}
+      </Box>
+
+      <Box style={{ padding: spacings.x5l, display: 'flex', gap: spacings.m, flexDirection: 'column' }}>
+        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
+          <Button>Primary button</Button>
+          <Button disabled>Disabled button</Button>
+          <Button loading>Loading button</Button>
+        </Box>
+        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
+          <Button variant="secondary">Secondary button</Button>
+          <Button variant="secondary" disabled>
+            Disabled button
+          </Button>
+          <Button variant="secondary" loading>
+            Loading button
+          </Button>
+        </Box>
       </Box>
 
       <Box display="flex" flexDirection="column" gap="l" marginTop="x5l">
