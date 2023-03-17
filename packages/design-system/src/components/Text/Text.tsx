@@ -6,7 +6,7 @@ type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
   as?: T;
   className?: string;
   children: React.ReactNode;
- 'data-testid'?: string;
+  'data-testid'?: string;
 };
 
 export const Text = forwardRef<HTMLElement, React.PropsWithChildren<TextProps<any>>>(
