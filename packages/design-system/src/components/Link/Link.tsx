@@ -5,15 +5,16 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { linkStyle } from './Link.css';
 
-type LinkProps = React.ComponentProps<'a'> & {
+type LinkProps = {
   'data-testid'?: string;
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;
   href?: string;
+  isSmall?: boolean;
+  rel?: React.ComponentProps<'a'>['rel'];
   target?: string;
   title?: string;
-  isSmall?: boolean;
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(

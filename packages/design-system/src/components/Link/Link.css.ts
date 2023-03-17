@@ -2,6 +2,13 @@ import { style } from '@vanilla-extract/css';
 import { colors, spacings } from 'src/tokens';
 
 export const linkStyle = style({
+  backgroundColor: 'transparent',
+  transition: 'background-color 200ms, color 200ms',
+  color: colors.greyscale900,
+  outline: 'none',
+  padding: spacings.xs,
+  textDecoration: 'underline',
+  textUnderlineOffset: spacings.x2s,
   selectors: {
     '&:not([aria-disabled]):hover, &:not([aria-disabled]):focus': {
       backgroundColor: colors.deepGreen100,
@@ -17,9 +24,4 @@ export const linkStyle = style({
       cursor: 'not-allowed',
     },
   },
-  color: colors.greyscale900,
-  outline: 'none',
-  padding: spacings.xs,
-  textDecoration: 'underline',
-  textUnderlineOffset: spacings.x2s,
 });
