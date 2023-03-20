@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Box } from './components/Box';
 import { Button } from './components/Button';
-import { Card } from './components/Card';
 import { Spinner } from './components/Spinner';
 import { themeClass } from './theme/theme.css';
 import { spacings } from './tokens';
 
 function App() {
   const [selected, setSelected] = useState(false);
+
   return (
     <div className={themeClass}>
       <Box style={{ padding: spacings.xl, display: 'flex', gap: spacings.m, flexDirection: 'column' }}>

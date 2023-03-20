@@ -54,6 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         title={title}
         type={type}
+        data-loading={loading}
         onClick={(e) => {
           e.stopPropagation();
           if (!loading && !disabled) {

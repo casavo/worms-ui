@@ -56,6 +56,9 @@ export const buttonRecipe = recipe({
         cursor: 'not-allowed',
         color: vars.colors.greyscale400,
       },
+      '&[data-loading=true]': {
+        padding: `${spacings.xs} ${spacings.l}`,
+      },
     },
   },
   defaultVariants: { variant: 'primary' },
@@ -103,6 +106,7 @@ export const labelStyle = style({
 export const iconStyle = styleVariants({
   primary: {
     fill: vars.colors.white,
+    transition: 'fill 250ms',
     selectors: {
       [`${primaryButtonStatusStyle}[disabled] &`]: {
         fill: vars.colors.greyscale400,
