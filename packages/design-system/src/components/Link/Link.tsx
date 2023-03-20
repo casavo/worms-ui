@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import { forwardRef, useRef } from 'react';
-import { AriaLinkOptions, useLink } from 'react-aria';
-import { useShareForwardedRef } from 'src/utils/useShareForwardedRef';
-import { Box } from '../Box';
+import { forwardRef } from 'react';
+import { useLink } from 'react-aria';
+import { useShareForwardedRef } from '../../utils/useShareForwardedRef';
 import { Text } from '../Text';
 import { linkStyle } from './Link.css';
 
