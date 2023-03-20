@@ -1,14 +1,14 @@
 import { forwardRef } from 'react';
 import { Box } from '../Box';
 import { Text } from '../Text';
-import { badgeRecipe, BadgeVariants, iconStyle } from './Badge.css';
+import { badgeRecipe, BadgeRecipeVariants, iconStyle } from './Badge.css';
 import { badgeIcon } from './Icons';
 
 type BadgeProps = {
   'data-testid'?: string;
   children: React.ReactNode;
   withIcon?: boolean;
-} & BadgeVariants;
+} & BadgeRecipeVariants;
 
 export const Badge = forwardRef<HTMLParagraphElement, BadgeProps>(
   ({ children, inverted, variant = 'success', withIcon, 'data-testid': dataTestId }, forwardedRef) => {

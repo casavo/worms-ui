@@ -9,7 +9,7 @@ export const badgeRecipe = recipe({
     border: '1px solid',
     borderRadius: spacings.xs,
     display: 'inline-block',
-    padding: `calc(${spacings.xs} / 2) ${spacings.s}`,
+    padding: `${spacings.x2s} ${spacings.s}`,
     textTransform: 'uppercase',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -42,7 +42,7 @@ export const badgeRecipe = recipe({
   ],
 });
 
-export type BadgeVariants = RecipeVariants<typeof badgeRecipe>;
+export type BadgeRecipeVariants = RecipeVariants<typeof badgeRecipe>;
 
 export const BadgeVariant = {
   success: 'success',
