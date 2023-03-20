@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Box } from './components/Box';
 import { Button } from './components/Button';
 import { Spinner } from './components/Spinner';
+import { Card } from './components/Card';
+import { Link } from './components/Link';
 import { themeClass } from './theme/theme.css';
 import { colors, spacings } from './tokens';
 
@@ -17,53 +19,33 @@ function App() {
 
   return (
     <div className={themeClass}>
-      <Box style={{ padding: spacings.xl, display: 'flex', gap: spacings.m, flexDirection: 'column' }}>
-        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button onClick={() => setLoading((b) => !b)} loading={loading}>
-            Primary button
-          </Button>
-          <Button disabled onClick={() => console.log('CLICK!')}>
-            Disabled button
-          </Button>
-          <Button loading onClick={() => console.log('AAAA')}>
-            Loading button
-          </Button>
-        </Box>
-        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button onClick={() => {}} variant="secondary">
-            Secondary button
-          </Button>
-          <Button variant="secondary" disabled>
-            Disabled button
-          </Button>
-          <Button variant="secondary" loading>
-            Loading button
-          </Button>
-        </Box>
+      <Box padding="l" display="flex" gap="m">
+        <Link rel="noreferrer" href="/">
+          Hello Link!
+        </Link>
+        <Link disabled href="/">
+          Disabled
+        </Link>
+        <Link title="Provami!" href="/">
+          With title
+        </Link>
+        <Link target="_blank" href="/">
+          Target
+        </Link>
       </Box>
-      <Box
-        style={{ padding: spacings.xl, display: 'flex', gap: spacings.m, flexDirection: 'column' }}
-        background="offWhite"
-      >
-        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button>Primary button</Button>
-          <Button disabled>Disabled button</Button>
-          <Button loading>Loading button</Button>
-        </Box>
-        <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button variant="secondary">Secondary button</Button>
-          <Button variant="secondary" disabled>
-            Disabled button
-          </Button>
-          <Button title="xxx" variant="secondary" loading>
-            Loading button
-          </Button>
-        </Box>
-      </Box>
-
-      <Box display="flex" flexDirection="column" gap="l" background="deepGreen100" padding="l">
-        <Spinner />
-        <Spinner variant="secondary" />
+      <Box padding="l" display="flex" gap="m">
+        <Link isSmall href="/">
+          Hello Link!
+        </Link>
+        <Link isSmall disabled href="/">
+          Disabled
+        </Link>
+        <Link isSmall title="Provami!" href="/">
+          With title
+        </Link>
+        <Link isSmall target="_blank" href="/">
+          Target
+        </Link>
       </Box>
     </div>
   );
