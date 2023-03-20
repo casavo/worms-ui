@@ -13,27 +13,27 @@ export const BathroomIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({ fill = c
 
 function App() {
   const [selected, setSelected] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className={themeClass}>
       <Box style={{ padding: spacings.xl, display: 'flex', gap: spacings.m, flexDirection: 'column' }}>
         <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button icon={(props) => <BathroomIcon {...props} />}>Primary button</Button>
-          <Button disabled icon={(props) => <BathroomIcon {...props} />}>
+          <Button onClick={() => setLoading((b) => !b)} loading={loading}>
+            Primary button
+          </Button>
+          <Button disabled onClick={() => console.log('CLICK!')}>
             Disabled button
           </Button>
-          <Button loading>Loading button</Button>
+          <Button loading onClick={() => console.log('AAAA')}>
+            Loading button
+          </Button>
         </Box>
         <Box style={{ display: 'flex', gap: spacings.m, flexDirection: 'row' }}>
-          <Button
-            iconPosition="right"
-            icon={(props) => <BathroomIcon {...props} />}
-            onClick={() => {}}
-            variant="secondary"
-          >
+          <Button onClick={() => {}} variant="secondary">
             Secondary button
           </Button>
-          <Button variant="secondary" disabled icon={(props) => <BathroomIcon {...props} />}>
+          <Button variant="secondary" disabled>
             Disabled button
           </Button>
           <Button variant="secondary" loading>

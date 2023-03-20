@@ -1,20 +1,16 @@
 import clsx from 'clsx';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import { useButton } from 'react-aria';
+import { useButton, VisuallyHidden } from 'react-aria';
 import { useShareForwardedRef } from '../../utils/useShareForwardedRef';
 import { Spinner } from '../Spinner';
 import { Text } from '../Text';
-import { buttonRecipe, ButtonVariants, iconStyle, labelStyle } from './Button.css';
-
-type BaseIconProps = { className?: string };
+import { buttonRecipe, ButtonVariants, labelStyle, spinnerStyle } from './Button.css';
 
 type ButtonProps = {
   children: React.ReactNode;
   'data-testid'?: string;
   className?: string;
   disabled?: boolean;
-  icon?: (props: BaseIconProps) => JSX.Element;
-  iconPosition?: 'left' | 'right';
   id?: string;
   loading?: boolean;
   onClick?: ButtonHTMLAttributes<{}>['onClick'];
@@ -34,15 +30,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       disabled,
       title,
-      icon: Icon,
-      iconPosition = 'left',
       ...props
     },
     forwardedRef
   ) => {
     const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
     const { buttonProps } = useButton({ ...props, isDisabled: disabled || loading }, ref);
-    const { onClick } = buttonProps;
 
     return (
       <button
@@ -55,22 +48,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         title={title}
         type={type}
         data-loading={loading}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (!loading && !disabled) {
-            onClick && onClick(e);
-          }
-        }}
       >
-        {loading ? (
-          <Spinner variant={variant} />
-        ) : (
-          <Text variant="bodyM" weight="strong" className={labelStyle}>
-            {iconPosition === 'left' && Icon ? <Icon className={iconStyle[variant]} /> : null}
-            {children}
-            {iconPosition === 'right' && Icon ? <Icon className={iconStyle[variant]} /> : null}
-          </Text>
-        )}
+        {loading ? <Spinner variant={variant} className={spinnerStyle} /> : null}
+        <Text variant="bodyM" weight="strong" className={labelStyle}>
+          {children}
+        </Text>
       </button>
     );
   }

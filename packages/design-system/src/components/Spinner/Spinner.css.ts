@@ -19,7 +19,7 @@ export const spinnerRecipe = recipe({
     boxSizing: 'border-box',
     display: 'block',
     height: spacings.ml,
-    left: 'calc(50% - 8px)',
+    left: 'calc(50% - 10px)',
     lineHeight: '46px',
     width: spacings.ml,
   },

@@ -13,13 +13,14 @@ const primaryButtonStatusStyle = style({
       backgroundColor: vars.colors.greyscale500,
       borderColor: vars.colors.greyscale500,
     },
-    '&:not([disabled]):focus': {
+    '&:not([disabled]):focus, &:not([disabled]):focus-visible': {
       boxShadow: `0 0 0 2px ${vars.colors.green600}`,
       backgroundColor: vars.colors.greyscale400,
       borderColor: vars.colors.greyscale400,
     },
   },
 });
+
 const secondaryButtonStatusStyle = style({
   selectors: {
     '&:not([disabled]):hover': {
@@ -31,7 +32,7 @@ const secondaryButtonStatusStyle = style({
       backgroundColor: vars.colors.greyscale500,
       borderColor: vars.colors.greyscale500,
     },
-    '&:not([disabled]):focus': {
+    '&:not([disabled]):focus, &:not([disabled]):focus-visible': {
       boxShadow: `0 0 0 2px ${vars.colors.green600}`,
       backgroundColor: vars.colors.greyscale600,
       borderColor: vars.colors.greyscale600,
@@ -40,27 +41,30 @@ const secondaryButtonStatusStyle = style({
   },
 });
 
-export const buttonRecipe = recipe({
-  base: {
-    border: '1px solid',
-    borderRadius: spacings.xs,
-    cursor: 'pointer',
-    fontFamily: vars.fonts.sans,
-    height: `calc(${spacings.ml} * 2)`,
-    outline: 'none',
-    padding: `${spacings.xs} ${spacings.m}`,
-    transition: 'all 250ms',
-    maxWidth: '100%',
-    selectors: {
-      '&[disabled]': {
-        cursor: 'not-allowed',
-        color: vars.colors.greyscale400,
-      },
-      '&[data-loading=true]': {
-        padding: `${spacings.xs} ${spacings.l}`,
-      },
+const baseStyle = style({
+  border: '1px solid',
+  position: 'relative',
+  borderRadius: spacings.xs,
+  cursor: 'pointer',
+  fontFamily: vars.fonts.sans,
+  height: `calc(${spacings.ml} * 2)`,
+  outline: 'none',
+  padding: `${spacings.xs} ${spacings.m}`,
+  transition: 'all 250ms',
+  maxWidth: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  gap: spacings.s,
+  selectors: {
+    '&[disabled]': {
+      cursor: 'not-allowed',
+      color: vars.colors.greyscale400,
     },
   },
+});
+
+export const buttonRecipe = recipe({
+  base: baseStyle,
   defaultVariants: { variant: 'primary' },
   variants: {
     variant: {
@@ -98,34 +102,17 @@ export const buttonRecipe = recipe({
 export type ButtonVariants = RecipeVariants<typeof buttonRecipe>;
 
 export const labelStyle = style({
-  display: 'flex',
-  alignItems: 'center',
-  gap: spacings.s,
+  visibility: 'visible',
+  transition: 'visibility 250ms, opacity 150ms',
+  opacity: 1,
+  selectors: {
+    [`${baseStyle}[data-loading=true] &`]: {
+      visibility: 'hidden',
+      opacity: 0,
+    },
+  },
 });
 
-export const iconStyle = styleVariants({
-  primary: {
-    fill: vars.colors.white,
-    transition: 'fill 250ms',
-    selectors: {
-      [`${primaryButtonStatusStyle}[disabled] &`]: {
-        fill: vars.colors.greyscale400,
-      },
-    },
-  },
-  secondary: {
-    fill: vars.colors.greyscale600,
-    transition: 'fill 250ms',
-    selectors: {
-      [`${secondaryButtonStatusStyle}[disabled] &`]: {
-        fill: vars.colors.greyscale400,
-      },
-      [`${secondaryButtonStatusStyle}:not([disabled]):hover &`]: {
-        fill: vars.colors.white,
-      },
-      [`${secondaryButtonStatusStyle}:not([disabled]):focus &`]: {
-        fill: vars.colors.white,
-      },
-    },
-  },
+export const spinnerStyle = style({
+  position: 'absolute',
 });
