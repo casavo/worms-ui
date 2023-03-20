@@ -1,51 +1,75 @@
 import clsx from 'clsx';
-import { forwardRef } from 'react';
-import { usePress } from 'react-aria';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { useButton } from 'react-aria';
+import { useShareForwardedRef } from '../../utils/useShareForwardedRef';
 import { Spinner } from '../Spinner';
-import { buttonRecipe, buttonStatusVariants, ButtonVariants } from './Button.css';
+import { Text } from '../Text';
+import { buttonRecipe, ButtonVariants, iconStyle, labelStyle } from './Button.css';
 
-type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, 'type'> & {
+type BaseIconProps = { className?: string };
+
+type ButtonProps = {
+  children: React.ReactNode;
   'data-testid'?: string;
-  id?: string;
-  onClick?: () => void;
   className?: string;
-  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
+  disabled?: boolean;
+  icon?: (props: BaseIconProps) => JSX.Element;
+  iconPosition?: 'left' | 'right';
+  id?: string;
   loading?: boolean;
+  onClick?: ButtonHTMLAttributes<{}>['onClick'];
+  title?: string;
+  type?: ButtonHTMLAttributes<{}>['type'];
 } & ButtonVariants;
 
-export const Button = forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
-  ({
-    'data-testid': dataTestId,
-    id,
-    onClick,
-    variant = 'primary',
-    type = 'button',
-    className,
-    children,
-    loading,
-    ...props
-  }) => {
-    let { pressProps } = usePress({
-      onPress: onClick,
-    });
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      'data-testid': dataTestId,
+      id,
+      variant = 'primary',
+      className,
+      type = 'button',
+      children,
+      loading,
+      disabled,
+      title,
+      icon: Icon,
+      iconPosition = 'left',
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
+    const { buttonProps } = useButton({ ...props, isDisabled: disabled || loading }, ref);
+    const { onClick } = buttonProps;
 
-    const buttonProps = { ...pressProps, ...props };
     return (
       <button
+        {...buttonProps}
+        className={clsx(buttonRecipe({ variant }), className)}
         data-testid={dataTestId}
+        disabled={loading || disabled}
         id={id}
-        className={clsx(buttonRecipe({ variant: variant }), buttonStatusVariants[variant], className)}
-        disabled={loading || props.disabled}
+        ref={ref}
+        title={title}
         type={type}
         onClick={(e) => {
           e.stopPropagation();
-          if (!loading && !props.disabled) {
+          if (!loading && !disabled) {
             onClick && onClick(e);
           }
         }}
-        {...buttonProps}
       >
-        {loading ? <Spinner variant={variant} /> : children}
+        {loading ? (
+          <Spinner variant={variant} />
+        ) : (
+          <Text variant="bodyM" weight="strong" className={labelStyle}>
+            {iconPosition === 'left' && Icon ? <Icon className={iconStyle[variant]} /> : null}
+            {children}
+            {iconPosition === 'right' && Icon ? <Icon className={iconStyle[variant]} /> : null}
+          </Text>
+        )}
       </button>
     );
   }
