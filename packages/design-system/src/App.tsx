@@ -1,5 +1,6 @@
 import { Badge } from './components/Badge';
 import { Box } from './components/Box';
+import { Button } from './components/Button';
 import { themeClass } from './theme/theme.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         flexDirection="column"
         alignItems="flex-start"
       >
+        <Button>Hello!</Button>
         <Badge>success</Badge>
 
         <Box display="flex" style={{ gap: 8 }}>
