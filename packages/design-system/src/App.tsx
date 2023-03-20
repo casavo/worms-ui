@@ -1,7 +1,6 @@
 import { Badge } from './components/Badge';
 import { Box } from './components/Box';
 import { themeClass } from './theme/theme.css';
-import { colors } from './tokens';
 
 function App() {
   return (
