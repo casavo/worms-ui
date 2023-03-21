@@ -17,6 +17,7 @@ const primaryButtonStatusStyle = style({
       boxShadow: `0 0 0 2px ${vars.colors.green600}`,
       backgroundColor: vars.colors.greyscale400,
       borderColor: vars.colors.greyscale400,
+      outline: 'none',
     },
   },
 });
@@ -37,6 +38,7 @@ const secondaryButtonStatusStyle = style({
       backgroundColor: vars.colors.greyscale600,
       borderColor: vars.colors.greyscale600,
       color: vars.colors.white,
+      outline: 'none',
     },
   },
 });
