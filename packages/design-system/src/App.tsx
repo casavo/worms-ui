@@ -16,6 +16,7 @@ export const EditIcon: React.FC<{ className?: string; fill?: string }> = ({
 
 import './theme/global.css';
 import './theme/reset.css';
+import { Link } from './components/Link';
 
 function App() {
   return (
@@ -40,9 +41,20 @@ function App() {
       </Box>
       <Box padding="l">
         <Breadcrumbs>
-          <BreadcrumbItem>Home</BreadcrumbItem>
-          <BreadcrumbItem>Leads</BreadcrumbItem>
-          <BreadcrumbItem isCurrent>To book</BreadcrumbItem>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem disabled>Leads</BreadcrumbItem>
+          <BreadcrumbItem href="/" isCurrent>
+            To book
+          </BreadcrumbItem>
+        </Breadcrumbs>
+      </Box>
+      <Box padding="l">
+        <Breadcrumbs>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href="/">Offers bundle</BreadcrumbItem>
+          <BreadcrumbItem href="/" isCurrent>
+            All
+          </BreadcrumbItem>
         </Breadcrumbs>
       </Box>
     </div>
