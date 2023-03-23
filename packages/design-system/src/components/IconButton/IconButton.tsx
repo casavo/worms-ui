@@ -16,14 +16,12 @@ type IconButtonProps = {
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
-    { disabled = false, children, onClick, title, 'data-testid': dataTestId, visuallyHiddenLabel, className, size },
+    { disabled, children, onClick, title, 'data-testid': dataTestId, visuallyHiddenLabel, className, size },
     forwardedRef
   ) => {
+    const hiddenLabel = visuallyHiddenLabel ?? title;
     const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
-    const { buttonProps } = useButton(
-      { isDisabled: disabled, onPress: onClick, 'aria-label': title ?? visuallyHiddenLabel },
-      ref
-    );
+    const { buttonProps } = useButton({ isDisabled: disabled, onPress: onClick, 'aria-label': hiddenLabel }, ref);
 
     const icon = cloneElement(children as React.ReactElement, { className: iconStyle });
 
@@ -35,7 +33,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={clsx(iconButtonRecipe({ size }), className)}
       >
         {icon}
-        {visuallyHiddenLabel && <VisuallyHidden>{visuallyHiddenLabel}</VisuallyHidden>}
+        {hiddenLabel && <VisuallyHidden>{hiddenLabel}</VisuallyHidden>}
       </button>
     );
   }
