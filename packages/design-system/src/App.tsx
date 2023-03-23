@@ -1,108 +1,39 @@
 import { Badge } from './components/Badge';
 import { Box } from './components/Box';
 import { Button } from './components/Button';
+import { IconButton } from './components/IconButton';
 import { themeClass } from './theme/theme.css';
+import { colors } from './tokens';
+
+export const EditIcon: React.FC<{ className?: string; fill?: string }> = ({
+  className,
+  fill = colors.greyscale600,
+}) => (
+  <svg height="16" viewBox="0 0 12 12" width="16" xmlns="http://www.w3.org/2000/svg" className={className} fill={fill}>
+    <path d="m7.373 4.013.614.614-6.04 6.04h-.614v-.614l6.04-6.04ZM9.773 0a.667.667 0 0 0-.466.193l-1.22 1.22 2.5 2.5 1.22-1.22c.26-.26.26-.68 0-.94l-1.56-1.56A.655.655 0 0 0 9.773 0Zm-2.4 2.127L0 9.5V12h2.5l7.373-7.373-2.5-2.5Z" />
+  </svg>
+);
 
 function App() {
   return (
     <div className={themeClass}>
-      <Box
-        padding="x2l"
-        background="deepGreen100"
-        display="flex"
-        style={{ gap: 24 }}
-        flexDirection="column"
-        alignItems="flex-start"
-      >
-        <Button>Hello!</Button>
-        <Badge>success</Badge>
+      <Box padding="xl" display="flex" gap="m">
+        <IconButton title="Edit" visuallyHiddenLabel="hello, I can edit" onClick={() => console.log('hello')}>
+          <EditIcon />
+        </IconButton>
+        <IconButton disabled title="Edit" visuallyHiddenLabel="hello, I can edit">
+          <EditIcon />
+        </IconButton>
+        <IconButton title="Edit" visuallyHiddenLabel="hello, I can edit" size="medium">
+          <EditIcon />
+        </IconButton>
+      </Box>
 
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge>success</Badge>
-          <Badge withIcon>success</Badge>
-          <Badge inverted>success inverted</Badge>
-          <Badge inverted withIcon>
-            success inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="warning">warning</Badge>
-          <Badge variant="warning" withIcon>
-            warning
-          </Badge>
-          <Badge variant="warning" inverted>
-            warning inverted
-          </Badge>
-          <Badge variant="warning" inverted withIcon>
-            warning inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="error">error</Badge>
-          <Badge variant="error" withIcon>
-            error
-          </Badge>
-          <Badge variant="error" inverted>
-            error inverted
-          </Badge>
-          <Badge variant="error" inverted withIcon>
-            error inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="orangeB2C">orangeB2C</Badge>
-          <Badge variant="orangeB2C" withIcon>
-            orangeB2C
-          </Badge>
-          <Badge variant="orangeB2C" inverted>
-            orangeB2C inverted
-          </Badge>
-          <Badge variant="orangeB2C" inverted withIcon>
-            orangeB2C inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="greenB2B">greenB2B</Badge>
-          <Badge variant="greenB2B" withIcon>
-            greenB2B
-          </Badge>
-          <Badge variant="greenB2B" inverted>
-            greenB2B inverted
-          </Badge>
-          <Badge variant="greenB2B" inverted withIcon>
-            greenB2B inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="deepGreen">deepGreen</Badge>
-          <Badge variant="deepGreen" withIcon>
-            deepGreen
-          </Badge>
-          <Badge variant="deepGreen" inverted>
-            deepGreen inverted
-          </Badge>
-          <Badge variant="deepGreen" inverted withIcon>
-            deepGreen inverted
-          </Badge>
-        </Box>
-
-        <Box display="flex" style={{ gap: 8 }}>
-          <Badge variant="light">light</Badge>
-          <Badge variant="light" withIcon>
-            light
-          </Badge>
-          <Badge variant="light" inverted>
-            light inverted
-          </Badge>
-          <Badge variant="light" inverted withIcon>
-            light inverted
-          </Badge>
-        </Box>
+      <Box padding="xl" display="flex" gap="m">
+        <IconButton onClick={() => console.log('sono disabilitato')}>
+          <EditIcon />
+        </IconButton>
+        <Button onClick={() => console.log('hello')}>Hello!</Button>
       </Box>
     </div>
   );

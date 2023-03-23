@@ -2,6 +2,7 @@ export { Badge, BadgeVariant } from './components/Badge';
 export { Box } from './components/Box';
 export { Button } from './components/Button';
 export { Card } from './components/Card';
+export { IconButton } from './components/IconButton';
 export { Link } from './components/Link';
 export { Separator } from './components/Separator';
 export { Spinner } from './components/Spinner';
