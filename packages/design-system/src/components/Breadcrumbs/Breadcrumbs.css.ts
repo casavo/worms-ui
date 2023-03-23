@@ -7,19 +7,14 @@ export const olStyle = style({
   display: 'inline-flex',
   flexWrap: 'wrap',
   gap: spacings.xs,
+  margin: 0,
+  padding: 0,
+  listStyle: 'none',
 });
 
-export const breadcrumbItemRecipe = recipe({
-  base: {
-    color: vars.textColor.inactive,
-    selectors: {
-      '&:not(:last-of-type):after': { color: vars.textColor.inactive, content: '"/"', marginLeft: spacings.xs },
-    },
-  },
-  variants: {
-    isCurrent: {
-      true: { color: vars.textColor.description, cursor: 'default', padding: `0 ${spacings.xs}` },
-    },
+export const breadcrumbItemStyle = style({
+  selectors: {
+    '&:not(:last-of-type):after': { color: vars.textColor.inactive, content: '"/"', marginLeft: spacings.xs },
   },
 });
 
@@ -29,6 +24,10 @@ export const breadcrumbItemLinkStyle = style({
   transition: 'color 250ms',
   selectors: {
     '&:not([aria-disabled]):hover, &:not([aria-disabled]):focus': {
+      color: vars.textColor.description,
+    },
+    '&[aria-current]': {
+      cursor: 'auto',
       color: vars.textColor.description,
     },
   },

@@ -1,5 +1,6 @@
 export { Badge, BadgeVariant } from './components/Badge';
 export { Box } from './components/Box';
+export { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
 export { Button } from './components/Button';
 export { Card } from './components/Card';
 export { IconButton } from './components/IconButton';
