@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, globalStyle } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { vars } from 'src/theme/theme.css';
 
@@ -47,8 +47,6 @@ export const iconButtonRecipe = recipe({
 
 export type IconButtonVariants = RecipeVariants<typeof iconButtonRecipe>;
 
-export const iconStyle = style({
-  selectors: {
-    [`${iconButtonStyleBase}:disabled &`]: { fill: vars.textColor.inactive },
-  },
+globalStyle(`${iconButtonStyleBase}:disabled > svg`, {
+  fill: vars.textColor.inactive,
 });

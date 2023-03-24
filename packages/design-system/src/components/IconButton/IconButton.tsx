@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { cloneElement, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { PressHookProps, useButton, VisuallyHidden } from 'react-aria';
 import { useShareForwardedRef } from '../../utils/useShareForwardedRef';
-import { iconButtonRecipe, IconButtonVariants, iconStyle } from './IconButton.css';
+import { iconButtonRecipe, IconButtonVariants } from './IconButton.css';
 
 type IconButtonProps = {
   children: React.ReactNode;
@@ -23,8 +23,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
     const { buttonProps } = useButton({ isDisabled: disabled, onPress: onClick, 'aria-label': hiddenLabel }, ref);
 
-    const icon = cloneElement(children as React.ReactElement, { className: iconStyle });
-
     return (
       <button
         {...buttonProps}
@@ -32,7 +30,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         title={title ?? visuallyHiddenLabel}
         className={clsx(iconButtonRecipe({ size }), className)}
       >
-        {icon}
+        {children}
         {hiddenLabel && <VisuallyHidden>{hiddenLabel}</VisuallyHidden>}
       </button>
     );
