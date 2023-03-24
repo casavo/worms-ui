@@ -2,6 +2,7 @@ import { Box } from './components/Box';
 import { Button } from './components/Button';
 import { IconButton } from './components/IconButton';
 import { BreadcrumbItem, Breadcrumbs } from './components/Breadcrumbs';
+import { Toaster, useToasts } from './components/Toast';
 import { themeClass } from './theme/theme.css';
 import { colors } from './tokens';
 
@@ -21,6 +22,8 @@ import './theme/reset.css';
 // import './theme/reset.css';
 
 function App() {
+  const { addToast } = useToasts();
+
   return (
     <div className={themeClass}>
       <Box padding="xl" display="flex" gap="m">
@@ -55,6 +58,23 @@ function App() {
           <BreadcrumbItem href="/">All</BreadcrumbItem>
         </Breadcrumbs>
       </Box>
+      <Box padding="xl">
+        <Button
+          onClick={() => addToast('This is a info message', { appearance: 'info', title: 'Title', duration: Infinity })}
+        >
+          Open INFO
+        </Button>
+        <Button onClick={() => addToast('This is a warning message', { appearance: 'warning', title: 'Title' })}>
+          Open WARNING
+        </Button>
+        <Button onClick={() => addToast('This is a success message', { appearance: 'success', title: 'Title' })}>
+          Open SUCCESS
+        </Button>
+        <Button onClick={() => addToast('This is a error message', { appearance: 'error', title: 'Title' })}>
+          Open ERROR
+        </Button>
+      </Box>
+      <Toaster />
     </div>
   );
 }
