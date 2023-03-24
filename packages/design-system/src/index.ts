@@ -8,6 +8,7 @@ export { Link } from './components/Link';
 export { Separator } from './components/Separator';
 export { Spinner } from './components/Spinner';
 export { Text } from './components/Text';
+export { Toaster, ToastAppearance, useToasts, Toast } from './components/Toast';
 
 export { themeClass as wormsUiThemeClass, vars as theme } from './theme/theme.css';
 export * from './tokens';
