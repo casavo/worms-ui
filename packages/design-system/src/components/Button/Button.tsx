@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import { useButton, VisuallyHidden } from 'react-aria';
+import { PressHookProps, useButton, VisuallyHidden } from 'react-aria';
 import { useShareForwardedRef } from '../../utils/useShareForwardedRef';
 import { Spinner } from '../Spinner';
 import { Text } from '../Text';
@@ -13,7 +13,7 @@ type ButtonProps = {
   disabled?: boolean;
   id?: string;
   loading?: boolean;
-  onClick?: ButtonHTMLAttributes<{}>['onClick'];
+  onClick?: PressHookProps['onPress'];
   title?: string;
   type?: ButtonHTMLAttributes<{}>['type'];
 } & ButtonVariants;
@@ -30,12 +30,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       disabled,
       title,
+      onClick,
       ...props
     },
     forwardedRef
   ) => {
     const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
-    const { buttonProps } = useButton({ ...props, isDisabled: disabled || loading }, ref);
+    const { buttonProps } = useButton({ ...props, isDisabled: disabled || loading, onPress: onClick }, ref);
 
     return (
       <button
