@@ -15,7 +15,7 @@ export const Toast: React.FC<ToastProps> = ({ appearance = 'info', ...toast }) =
     <ReactToast.ToastBar toast={toast} position="bottom-right" style={{ boxShadow: 'none', padding: 0, opacity: 1 }}>
       {() => {
         return (
-          <div className={clsx(toastRecipe({ appearance }))}>
+          <div className={clsx(toastRecipe({ appearance }))} {...toast.ariaProps}>
             <Icon className={iconStyle[appearance]} />
             <div className={messageContainerStyle}>
               {toast.title ? <Text weight="strong">{toast.title}</Text> : null}
