@@ -23,11 +23,14 @@ export const breadcrumbItemLinkStyle = style({
   color: vars.textColor.inactive,
   transition: 'color 250ms',
   selectors: {
+    '&[aria-disabled]': {
+      cursor: 'default',
+    },
     '&:not([aria-disabled]):hover, &:not([aria-disabled]):focus': {
       color: vars.textColor.description,
     },
     '&[aria-current]': {
-      cursor: 'auto',
+      cursor: 'default',
       color: vars.textColor.description,
     },
   },
