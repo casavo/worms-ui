@@ -1,7 +1,7 @@
-import { Badge } from './components/Badge';
 import { Box } from './components/Box';
 import { Button } from './components/Button';
 import { IconButton } from './components/IconButton';
+import { BreadcrumbItem, Breadcrumbs } from './components/Breadcrumbs';
 import { themeClass } from './theme/theme.css';
 import { colors } from './tokens';
 
@@ -13,6 +13,12 @@ export const EditIcon: React.FC<{ className?: string; fill?: string }> = ({
     <path d="m7.373 4.013.614.614-6.04 6.04h-.614v-.614l6.04-6.04ZM9.773 0a.667.667 0 0 0-.466.193l-1.22 1.22 2.5 2.5 1.22-1.22c.26-.26.26-.68 0-.94l-1.56-1.56A.655.655 0 0 0 9.773 0Zm-2.4 2.127L0 9.5V12h2.5l7.373-7.373-2.5-2.5Z" />
   </svg>
 );
+
+import './theme/global.css';
+import './theme/reset.css';
+
+// import './theme/global.css';
+// import './theme/reset.css';
 
 function App() {
   return (
@@ -34,6 +40,20 @@ function App() {
           <EditIcon />
         </IconButton>
         <Button onClick={() => console.log('hello')}>Hello!</Button>
+      </Box>
+      <Box padding="l">
+        <Breadcrumbs>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem disabled>Leads</BreadcrumbItem>
+          <BreadcrumbItem href="/">To book</BreadcrumbItem>
+        </Breadcrumbs>
+      </Box>
+      <Box padding="l">
+        <Breadcrumbs>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href="/">Offers bundle</BreadcrumbItem>
+          <BreadcrumbItem href="/">All</BreadcrumbItem>
+        </Breadcrumbs>
       </Box>
     </div>
   );
