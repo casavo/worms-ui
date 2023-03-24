@@ -7,7 +7,7 @@ type ToasterProps = { duration?: number };
 export const Toaster: React.FC<ToasterProps> = ({ duration = 5000 }) => {
   return (
     <ReactToaster position="top-right" reverseOrder toastOptions={{ duration }}>
-      {(t: ToastType) => <Toast toast={t} />}
+      {(t: ToastType) => <Toast {...t} />}
     </ReactToaster>
   );
 };

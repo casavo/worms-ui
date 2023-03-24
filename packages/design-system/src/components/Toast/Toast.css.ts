@@ -14,6 +14,7 @@ export const toastRecipe = recipe({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: spacings.s,
+    position: 'relative',
   },
   defaultVariants: {
     appearance: 'info',
@@ -51,4 +52,11 @@ export const messageContainerStyle = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+});
+
+export const closeIconButtonStyle = style({
+  flexShrink: 0,
+  top: spacings.xs,
+  right: spacings.xs,
+  position: 'absolute',
 });
