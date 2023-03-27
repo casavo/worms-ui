@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes';
 import { vars } from 'src/theme/theme.css';
 import { spacings } from 'src/tokens';
@@ -118,3 +118,26 @@ export const labelStyle = style({
 export const spinnerStyle = style({
   position: 'absolute',
 });
+
+globalStyle(`${primaryButtonStatusStyle} svg`, {
+  fill: vars.colors.white,
+});
+
+globalStyle(`${baseStyle}:disabled svg`, {
+  fill: vars.colors.greyscale400,
+});
+
+globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):hover svg`, {
+  fill: vars.colors.white,
+});
+
+globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):hover svg`, {
+  fill: vars.colors.white,
+});
+
+globalStyle(
+  `${secondaryButtonStatusStyle}:not([disabled]):focus, ${secondaryButtonStatusStyle}:not([disabled]):focus-visible svg`,
+  {
+    fill: vars.colors.white,
+  }
+);
