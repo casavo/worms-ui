@@ -131,13 +131,10 @@ globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):hover svg`, {
   fill: vars.colors.white,
 });
 
-globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):hover svg`, {
+globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):focus svg`, {
   fill: vars.colors.white,
 });
 
-globalStyle(
-  `${secondaryButtonStatusStyle}:not([disabled]):focus, ${secondaryButtonStatusStyle}:not([disabled]):focus-visible svg`,
-  {
-    fill: vars.colors.white,
-  }
-);
+globalStyle(`${secondaryButtonStatusStyle}:not([disabled]):focus-visible svg`, {
+  fill: vars.colors.white,
+});
