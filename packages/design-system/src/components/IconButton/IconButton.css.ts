@@ -16,12 +16,14 @@ const iconButtonStyleBase = style({
     '&:not([disabled]):focus, &:not([disabled]):focus-visible': {
       background: vars.colors.deepGreen100,
       boxShadow: `0 0 0 2px ${vars.colors.green600}`,
+      outline: 'none',
     },
     '&:disabled': {
       cursor: 'not-allowed',
     },
     '&:not([disabled]):hover': {
       background: vars.colors.deepGreen100,
+      outline: 'none',
     },
   },
 });
