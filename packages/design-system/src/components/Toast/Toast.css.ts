@@ -9,7 +9,8 @@ export const toastRecipe = recipe({
     padding: spacings.m,
     color: vars.colors.greyscale600,
     borderRadius: spacings.xs,
-    width: 250,
+    maxWidth: 290,
+    minWidth: 250,
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
@@ -52,6 +53,8 @@ export const messageContainerStyle = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+  wordBreak: 'break-all',
+  paddingRight: spacings.l,
 });
 
 export const closeIconButtonStyle = style({
