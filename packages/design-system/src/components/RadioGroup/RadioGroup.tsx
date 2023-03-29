@@ -28,7 +28,7 @@ export function RadioGroup<T extends string = string>({
   return (
     <fieldset style={{ margin: 0, padding: 0, borderWidth: 0 }}>
       <legend className={legendStyle}>
-        {legend} {required && '*'}
+        {legend} {required ? '*' : null}
       </legend>
       <RadioGroupPrimitive.Root aria-label={legend} orientation={orientation} {...props} onValueChange={onChange}>
         <div
