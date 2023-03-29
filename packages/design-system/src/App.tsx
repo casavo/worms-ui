@@ -5,6 +5,11 @@ import { BreadcrumbItem, Breadcrumbs } from './components/Breadcrumbs';
 import { Toaster, useToasts } from './components/Toast';
 import { themeClass } from './theme/theme.css';
 import { colors } from './tokens';
+import { RadioGroup, RadioGroupItem } from './components/RadioGroup';
+import { useState } from 'react';
+
+import './theme/reset.css';
+import './theme/global.css';
 
 export const EditIcon: React.FC<{ className?: string; fill?: string }> = ({
   className,
@@ -15,17 +20,29 @@ export const EditIcon: React.FC<{ className?: string; fill?: string }> = ({
   </svg>
 );
 
-import './theme/global.css';
-import './theme/reset.css';
-
-// import './theme/global.css';
-// import './theme/reset.css';
-
 function App() {
   const { addToast } = useToasts();
+  const [radio, setRadio] = useState<'default' | 'compact'>('compact');
 
   return (
     <div className={themeClass}>
+      <RadioGroup value={radio} onChange={(value) => setRadio(value)} variant="orangeB2C">
+        <RadioGroupItem id="default" label="Default" value="default" />
+        <RadioGroupItem id="compact" label="Compact" value="compact" />
+      </RadioGroup>
+      <RadioGroup value={radio} onChange={(value) => setRadio(value)} variant="deepGreen">
+        <RadioGroupItem id="default" label="Default" value="default" />
+        <RadioGroupItem id="compact" label="Compact" value="compact" />
+      </RadioGroup>
+      <RadioGroup value={radio} onChange={(value) => setRadio(value)} variant="greenB2B">
+        <RadioGroupItem id="default" label="Default" value="default" />
+        <RadioGroupItem id="compact" label="Compact" value="compact" />
+      </RadioGroup>
+      <RadioGroup value={radio} onChange={(value) => setRadio(value)} variant="light" size="small">
+        <RadioGroupItem id="default" label="Default" value="default" />
+        <RadioGroupItem id="compact" label="Compact" value="compact" />
+      </RadioGroup>
+
       <Box padding="xl" display="flex" gap="m">
         <IconButton title="Edit" visuallyHiddenLabel="hello, I can edit" onClick={() => console.log('hello')}>
           <EditIcon />

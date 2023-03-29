@@ -5,6 +5,7 @@ export { Button } from './components/Button';
 export { Card } from './components/Card';
 export { IconButton } from './components/IconButton';
 export { Link } from './components/Link';
+export { RadioGroup, RadioGroupItem, RadioGroupVariant } from './components/RadioGroup';
 export { Separator } from './components/Separator';
 export { Spinner } from './components/Spinner';
 export { Text } from './components/Text';
