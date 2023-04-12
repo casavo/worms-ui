@@ -1,9 +1,8 @@
-import { wormsUiThemeClass } from '@casavo/worms-ui';
 import '@casavo/worms-ui/style.css';
 
 export const decorators = [
   (Story) => (
-    <div className={wormsUiThemeClass}>
+    <div>
       <Story />
     </div>
   ),
