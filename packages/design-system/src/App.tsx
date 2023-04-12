@@ -27,12 +27,12 @@ function App() {
   return (
     <div>
       <Box padding="x2l" display="flex" flexDirection={'column'} gap="l" alignItems={'flex-start'}>
-        <Dropdown trigger={<TriggerButton>Click to open</TriggerButton>}>
+        <Dropdown loading trigger={<TriggerButton>Click to open</TriggerButton>}>
           <DropdownItem>First item</DropdownItem>
           <DropdownItem>Second item</DropdownItem>
         </Dropdown>
 
-        <Dropdown trigger={<TriggerButton variant="secondary">Click to open</TriggerButton>}>
+        <Dropdown disabled trigger={<TriggerButton variant="secondary">Click to open</TriggerButton>}>
           <DropdownItem>First item</DropdownItem>
           <DropdownItem>Second item</DropdownItem>
         </Dropdown>
