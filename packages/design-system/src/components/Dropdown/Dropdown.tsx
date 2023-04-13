@@ -1,9 +1,9 @@
-import * as DropdownPrimative from '@radix-ui/react-dropdown-menu';
+import * as DropdownPrimitive from '@radix-ui/react-dropdown-menu';
 import { useState } from 'react';
 import { contentStyle, itemStyle } from './Dropdown.css';
 import { Text } from '../Text';
 
-type DropdownAlign = React.ComponentProps<typeof DropdownPrimative.Content>['align'];
+type DropdownAlign = React.ComponentProps<typeof DropdownPrimitive.Content>['align'];
 
 type DropdownProps = {
   trigger: React.ReactNode;
@@ -28,8 +28,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <>
-      <DropdownPrimative.Root open={open} onOpenChange={setOpen}>
-        <DropdownPrimative.Trigger
+      <DropdownPrimitive.Root open={open} onOpenChange={setOpen}>
+        <DropdownPrimitive.Trigger
           data-testid={dataTestId}
           disabled={disabled || loading}
           asChild
@@ -37,31 +37,31 @@ export const Dropdown: React.FC<DropdownProps> = ({
           {...triggerProps}
         >
           {trigger}
-        </DropdownPrimative.Trigger>
+        </DropdownPrimitive.Trigger>
 
-        <DropdownPrimative.Portal>
-          <DropdownPrimative.Content
+        <DropdownPrimitive.Portal>
+          <DropdownPrimitive.Content
             className={contentStyle}
             align={dropdownAlign}
             data-testid="opened-menu"
             sideOffset={8}
           >
             {children}
-          </DropdownPrimative.Content>
-        </DropdownPrimative.Portal>
-      </DropdownPrimative.Root>
+          </DropdownPrimitive.Content>
+        </DropdownPrimitive.Portal>
+      </DropdownPrimitive.Root>
     </>
   );
 };
 
-type DropdownItemProps = React.ComponentProps<typeof DropdownPrimative.Item> & {
+type DropdownItemProps = React.ComponentProps<typeof DropdownPrimitive.Item> & {
   'data-testid'?: string;
 };
 
 export const DropdownItem: React.FC<DropdownItemProps> = ({ children, 'data-testid': dataTestId, ...props }) => {
   return (
-    <DropdownPrimative.Item data-testid={dataTestId} className={itemStyle} {...props}>
+    <DropdownPrimitive.Item data-testid={dataTestId} className={itemStyle} {...props}>
       <Text>{children}</Text>
-    </DropdownPrimative.Item>
+    </DropdownPrimitive.Item>
   );
 };
