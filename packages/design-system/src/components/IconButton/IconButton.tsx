@@ -16,18 +16,22 @@ type IconButtonProps = {
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
-    { disabled, children, onClick, title, 'data-testid': dataTestId, visuallyHiddenLabel, className, size },
+    { disabled, children, onClick, title, 'data-testid': dataTestId, visuallyHiddenLabel, className, size, ...props },
     forwardedRef
   ) => {
     const hiddenLabel = visuallyHiddenLabel ?? title;
     const ref = useShareForwardedRef<HTMLButtonElement>(forwardedRef);
-    const { buttonProps } = useButton({ isDisabled: disabled, onPress: onClick, 'aria-label': hiddenLabel }, ref);
+    const { buttonProps } = useButton(
+      { ...props, isDisabled: disabled, onPress: onClick, 'aria-label': hiddenLabel },
+      ref
+    );
 
     return (
       <button
         {...buttonProps}
         data-testid={dataTestId}
         title={title ?? visuallyHiddenLabel}
+        ref={ref}
         className={clsx(iconButtonRecipe({ size }), className)}
       >
         {children}

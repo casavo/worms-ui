@@ -1,12 +1,12 @@
-import { Box } from './components/Box';
-import { Button } from './components/Button';
-import { IconButton } from './components/IconButton';
-import { BreadcrumbItem, Breadcrumbs } from './components/Breadcrumbs';
-import { Toaster, useToasts } from './components/Toast';
-import { themeClass } from './theme/theme.css';
-import { colors } from './tokens';
-import { RadioGroup, RadioGroupItem } from './components/RadioGroup';
 import { useState } from 'react';
+import { Box } from './components/Box';
+import { BreadcrumbItem, Breadcrumbs } from './components/Breadcrumbs';
+import { Button } from './components/Button';
+import { Dropdown, DropdownItem, TriggerButton, TriggerIconButton, TriggerMenu } from './components/Dropdown';
+import { IconButton } from './components/IconButton';
+import { RadioGroup, RadioGroupItem } from './components/RadioGroup';
+import { Toaster, useToasts } from './components/Toast';
+import { colors } from './tokens';
 
 import './theme/reset.css';
 import './theme/global.css';
@@ -25,7 +25,40 @@ function App() {
   const [radio, setRadio] = useState<'default' | 'compact'>('compact');
 
   return (
-    <div className={themeClass}>
+    <div>
+      <Box padding="x2l" display="flex" flexDirection={'column'} gap="l" alignItems={'flex-start'}>
+        <Dropdown loading trigger={<TriggerButton>Click to open</TriggerButton>}>
+          <DropdownItem>First item</DropdownItem>
+          <DropdownItem>Second item</DropdownItem>
+        </Dropdown>
+
+        <Dropdown disabled trigger={<TriggerButton variant="secondary">Click to open</TriggerButton>}>
+          <DropdownItem>First item</DropdownItem>
+          <DropdownItem>Second item</DropdownItem>
+        </Dropdown>
+
+        <Dropdown
+          trigger={
+            <TriggerIconButton>
+              <EditIcon />
+            </TriggerIconButton>
+          }
+        >
+          <DropdownItem>First item</DropdownItem>
+          <DropdownItem>Second item</DropdownItem>
+        </Dropdown>
+
+        <Dropdown trigger={<TriggerMenu>Menu</TriggerMenu>}>
+          <DropdownItem>First item</DropdownItem>
+          <DropdownItem>Second item</DropdownItem>
+        </Dropdown>
+
+        <Dropdown trigger={<TriggerMenu>Menu</TriggerMenu>}>
+          <DropdownItem>First item</DropdownItem>
+          <DropdownItem>Second item</DropdownItem>
+        </Dropdown>
+      </Box>
+
       <RadioGroup value={radio} onChange={(value) => setRadio(value)} variant="orangeB2C">
         <RadioGroupItem id="default" label="Default" value="default" />
         <RadioGroupItem id="compact" label="Compact" value="compact" />

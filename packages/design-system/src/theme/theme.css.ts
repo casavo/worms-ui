@@ -1,7 +1,7 @@
-import { createTheme } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 import { colors, fontFamily, fontSizes, fontWeight, mediaQueries } from 'src/tokens';
 
-export const [themeClass, vars] = createTheme({
+export const vars = createGlobalTheme(':root', {
   backgroundColor: {
     app: colors.offWhite,
     neutral: colors.white,
