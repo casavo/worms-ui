@@ -30,7 +30,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pnpm install --frozen-lockfile --filter @casavo/worms-ui
+          pnpm install --frozen-lockfile
 
       - name: Build and publish package
         run: |
