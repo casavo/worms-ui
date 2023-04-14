@@ -5,7 +5,8 @@
   "scripts": {
     "dev:worms-ui": "pnpm run --filter @casavo/worms-ui dev",
     "build:worms-ui": "pnpm run --filter @casavo/worms-ui build",
-    "run:storybook": "pnpm --filter storybook run storybook"
+    "run:storybook": "pnpm --filter storybook run storybook",
+    "build:storybook": "pnpm --filter storybook run build-storybook"
   },
   "keywords": [],
   "author": "Simone D'Avico <simone.davico@casavo.com>",
