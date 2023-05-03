@@ -7,18 +7,19 @@ import { Text } from '../Text';
 import { breadcrumbItemLinkStyle, breadcrumbItemStyle, olStyle } from './Breadcrumbs.css';
 
 type BreadcrumbItemProps = {
+  className?: string;
   children: string;
   disabled?: boolean;
   href?: string;
 };
 
 export const BreadcrumbItem = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
-  ({ children, href, disabled, ...props }, forwardedRef) => {
+  ({ children, href, disabled, className, ...props }, forwardedRef) => {
     const ref = useShareForwardedRef(forwardedRef);
     const { itemProps } = useBreadcrumbItem({ children, elementType: 'div', isDisabled: disabled, ...props }, ref);
 
     return (
-      <Text as="li" className={clsx(breadcrumbItemStyle)} variant="description">
+      <Text as="li" className={clsx(breadcrumbItemStyle, className)} variant="description">
         <Link {...itemProps} ref={ref} href={href} className={breadcrumbItemLinkStyle} disabled={disabled} isSmall>
           {children}
         </Link>
