@@ -53,7 +53,7 @@ export const messageContainerStyle = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  wordBreak: 'break-all',
+  wordBreak: 'break-word',
   paddingRight: spacings.l,
 });
 

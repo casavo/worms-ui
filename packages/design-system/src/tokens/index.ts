@@ -72,7 +72,7 @@ export const spacings = {
 } as const;
 
 export const fontFamily = {
-  sans: 'Inter',
+  sans: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
   serif: 'Bagoss Condensed',
 } as const;
 
