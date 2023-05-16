@@ -92,7 +92,9 @@ function App() {
         <IconButton onClick={() => console.log('sono disabilitato')}>
           <EditIcon />
         </IconButton>
-        <Button onClick={() => console.log('hello')}>Hello!</Button>
+        <Button onClick={() => console.log('hello')}>
+          <EditIcon /> Hello!
+        </Button>
       </Box>
       <Box padding="l">
         <Breadcrumbs>

@@ -107,6 +107,9 @@ export const labelStyle = style({
   visibility: 'visible',
   transition: 'visibility 250ms, opacity 150ms',
   opacity: 1,
+  display: 'flex',
+  alignItems: 'center',
+  gap: spacings.s,
   selectors: {
     [`${baseStyle}[data-loading=true] &`]: {
       visibility: 'hidden',
