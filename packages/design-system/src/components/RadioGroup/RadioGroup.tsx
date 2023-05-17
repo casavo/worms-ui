@@ -22,9 +22,11 @@ export function RadioGroup<T extends string = string>({
   size,
   ...props
 }: React.PropsWithChildren<RadioGroupProps<T>>) {
-  const clones = Children.map(children as React.ReactElement[], (child) =>
+  const validChildren = Children.toArray(children).filter((c) => c !== null);
+  const clones = Children.map(validChildren as React.ReactElement[], (child) =>
     cloneElement(child, { className: radioGroupRecipe({ variant, size }) })
   );
+
   return (
     <fieldset style={{ margin: 0, padding: 0, borderWidth: 0 }}>
       <legend className={legendStyle}>
