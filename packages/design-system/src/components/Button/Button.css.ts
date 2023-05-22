@@ -87,7 +87,7 @@ export const buttonRecipe = recipe({
       secondary: [
         secondaryButtonStatusStyle,
         {
-          backgroundColor: 'transparent',
+          backgroundColor: vars.colors.white,
           borderColor: vars.colors.greyscale600,
           color: vars.colors.greyscale600,
           selectors: {
