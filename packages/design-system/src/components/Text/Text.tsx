@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 import { forwardRef } from 'react';
 import { textRecipe, TextRecipe } from './Text.css';
+import { CommonBaseProps } from 'src/global';
 
 type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
   as?: T;
@@ -8,7 +9,7 @@ type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
   children: React.ReactNode;
   'data-testid'?: string;
   style?: React.CSSProperties;
-};
+} & CommonBaseProps;
 
 export const Text = forwardRef<HTMLElement, React.PropsWithChildren<TextProps<any>>>(
   (
