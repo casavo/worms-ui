@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import { forwardRef } from 'react';
 import { textRecipe, TextRecipe } from './Text.css';
-import { CommonBaseProps } from 'src/global';
+import { CommonBaseProps } from '../../utils/common-props';
 
 type TextProps<T extends keyof JSX.IntrinsicElements> = TextRecipe & {
   as?: T;

@@ -3,7 +3,7 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { badgeRecipe, BadgeRecipeVariants, iconStyle } from './Badge.css';
 import { badgeIcon } from './Icons';
-import { CommonBaseProps } from 'src/global';
+import { CommonBaseProps } from '../../utils/common-props';
 import clsx from 'clsx';
 
 type BadgeProps = CommonBaseProps & {
