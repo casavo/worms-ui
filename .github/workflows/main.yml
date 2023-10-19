@@ -39,11 +39,3 @@ jobs:
           pnpm publish --filter @casavo/worms-ui --force --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          projectToken: ${{secrets.CHROMATIC_PROJECT_TOKEN}}
-          exitZeroOnChanges: true
-          exitOnceUploaded: true
-          buildScriptName: 'build:storybook'
